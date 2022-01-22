@@ -8,6 +8,8 @@
 #ifndef WIN_PORT_H_
 #define WIN_PORT_H_
 
+#if defined(__MINGW32__) || defined(_WIN32)
+
 #include <windows.h>
 #include <iostream>
 #include <cstring>
@@ -58,5 +60,7 @@ private:
 };
 
 } /* namespace std */
+
+#endif
 
 #endif /* WIN_PORT_H_ */

@@ -5,7 +5,7 @@ iSerialPort.h
 iSerialPort.cpp
 win_port.h
 win_port.cpp
-)
+        linux_port.cpp linux_port.h)
 
 #USE interface to unclude lib path at project target
 target_include_directories(lib_SerialPort

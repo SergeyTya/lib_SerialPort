@@ -8,11 +8,13 @@
 #ifndef ISERIALPORT_H_
 #define ISERIALPORT_H_
 
+
 #include <memory>
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <cstring>
 #include <string>
+
 
 
 namespace std {
@@ -48,5 +50,4 @@ public:
 
 
 } /* namespace sp */
-
 #endif /* ISERIALPORT_H_ */
