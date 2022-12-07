@@ -193,29 +193,28 @@ bool WinSerialPort::waitForReadyRead(int timeout) {
 
 }
 
-bool WinSerialPort::waitForReadyRead(int timeout , unsigned long size){
+bool WinSerialPort::waitForReadyRead(int timeout, unsigned long size) {
 
-	unsigned long bytes = 0;
-	unsigned long bts = 0;
-	int i = 0;
+  unsigned long bytes = 0;
+  unsigned long bts = 0;
+  int i = 0;
 
-	while (i < timeout || bytes!= size) {
-		bytes = bytesToRead();
-		if (bytes == bts) {
-			i++;
-		} else {
-			i = 0;
-		};
-		bts = bytes;
-		Sleep(1);
-	}
-	if (bytes > 0) return true;
+  while (i < timeout) {
+    bytes = bytesToRead();
+    if(bytes == size){
+      return true;
+    }
+    if (bytes == bts) {
+      i++;
+      Sleep(1);
+    } else {
+      i = 0;
+      bts = bytes;
+    }
+  }
 
-	throw std::runtime_error("time out!");
-
+  throw std::runtime_error("time out!");
 }
-
-
 
 } /* namespace std */
 
