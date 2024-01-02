@@ -89,7 +89,7 @@ unsigned long WinSerialPort::read(char* data, unsigned long maxNumBytesRead) {
         COMSTAT comstat;
         ClearCommError(hComPort, &temp, &comstat); // заполнить структуру COMSTAT
         numRedByte = comstat.cbInQue; //получить количество принятых байтов
-        if (numRedByte > 0) {
+			if (numRedByte > 0) {
             if(!ReadFile(hComPort, data, maxNumBytesRead, &dwBytesRead, NULL)){
                 throw std::runtime_error("read error");
             } else {
@@ -111,7 +111,7 @@ std::string WinSerialPort::readAll(){
 	if(bytes>0)res.assign(buf, bytes);
 	//cout<<res<<endl;
 	return res;
-};
+}
 
 std::string WinSerialPort::readAll(int timeout){
 
@@ -123,7 +123,7 @@ std::string WinSerialPort::readAll(int timeout){
 	if(res.length() == 0) throw std::runtime_error("time out!");
 	return res;
 
-};
+}
 
 bool WinSerialPort::write(char *data, unsigned long len) {
 
@@ -181,7 +181,7 @@ bool WinSerialPort::waitForReadyRead(int timeout) {
 			i++;
 		} else {
 			i = 0;
-		};
+		}
 		bts = bytes;
 	}
 
@@ -200,13 +200,13 @@ bool WinSerialPort::waitForReadyRead(int timeout, unsigned long size) {
   int i = 0;
 
   while (i < timeout) {
-    bytes = bytesToRead();
+	bytes = bytesToRead();
+	Sleep(10);
     if(bytes == size){
       return true;
     }
     if (bytes == bts) {
       i++;
-      Sleep(1);
     } else {
       i = 0;
       bts = bytes;
