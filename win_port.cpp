@@ -1,7 +1,7 @@
 /*
  * win_port.cpp
  *
- *  Created on: 29 ï¿½ï¿½ï¿½ï¿½. 2021 ï¿½.
+ *  Created on: 29 ï¿½ï¿½ï¿½ï¿½. 2021 ï¿„1¤7.
  *      Author: Sergey
  */
 
@@ -214,6 +214,10 @@ bool WinSerialPort::waitForReadyRead(int timeout, unsigned long size) {
   }
 
   throw std::runtime_error("time out!");
+}
+
+void WinSerialPort::wait(int time_ms){
+	Sleep(time_ms);
 }
 
 } /* namespace std */

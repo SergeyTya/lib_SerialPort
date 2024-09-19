@@ -1,7 +1,7 @@
 /*
  * win_port.h
  *
- *  Created on: 29 ï¿½ï¿½ï¿½ï¿½. 2021 ï¿½.
+ *  Created on: 29 ï¿½ï¿½ï¿½ï¿½. 2021 ï¿„1¤7.
  *      Author: Sergey
  */
 
@@ -42,6 +42,7 @@ public:
 	virtual std::string readAll(int timeout);
 	virtual std::string getName() const{ return portname; };
 	virtual void close(void);
+	virtual void wait(int time_ms);
 
 protected:
 

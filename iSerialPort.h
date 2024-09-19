@@ -1,7 +1,7 @@
 /*
  * iSerialPort.h
  *
- *  Created on: 30 δεκ. 2021 γ.
+ *  Created on: 30 δε„1¤7. 2021 „1¤7.
  *      Author: Sergey
  */
 
@@ -43,6 +43,8 @@ public:
 	virtual std::string readAll(int timeout) =0;
 	virtual std::string getName() const = 0;
 	virtual void close() = 0;
+
+	virtual void wait(int time_ms) =0;
 
 	virtual ~ISerialPort()=default;
 
